@@ -1,0 +1,3 @@
+rootProject.name = 'daodao_RN'
+
+include ':app'
