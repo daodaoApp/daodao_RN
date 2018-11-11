@@ -5,7 +5,9 @@ import { View, Text, StyleSheet, Platform } from 'react-native'
 import { Calendar, CalendarList, Agenda, LocaleConfig } from 'react-native-calendars'
 import NavBar from '../components/layout/NavBar'
 import TabBar from '../components/layout/TabBar'
+import MainLayout from '../components/layout/MainLayout'
 import { log } from '../utils/debugTools'
+
 // LocaleConfig.defaultLocale = 'fr'
 
 class CalendarScreen extends Component {
@@ -52,12 +54,21 @@ class CalendarScreen extends Component {
       markingType: "period",
     }
     return (
-      <View style={styles.container} >
-        <NavBar></NavBar>
-        <Text style={styles.title} >日历页面</Text>
+      // <View>
+      <MainLayout title="日历" navigation={this.props.navigation}  >
+        {/* <Text>Hello world</Text> */}
+        {/* <Text style={styles.title} >日历页面</Text> */}
         <Calendar {...calendarProps} ></Calendar>
-        <TabBar></TabBar>
-      </View>)
+      </MainLayout>
+      // </View >
+    )
+    // return (
+    //   <View style={styles.container} >
+    //     {/* <NavBar></NavBar> */}
+    //     <Text style={styles.title} >日历页面</Text>
+    //     <Calendar {...calendarProps} ></Calendar>
+    //     {/* <TabBar></TabBar> */}
+    //   </View>)
   }
 }
 

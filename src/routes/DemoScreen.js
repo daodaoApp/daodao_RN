@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { View, Text, StyleSheet, Platform } from 'react-native'
-
+import MainLayout from '../components/layout/MainLayout'
 const greeting = Platform.select({
   ios: 'ios',
   android: 'android'
@@ -9,10 +9,10 @@ const greeting = Platform.select({
 class Demo extends Component {
   render() {
     return (
-      <View style={styles.container} >
+      <MainLayout title='demo' navigation={this.props.navigation} >
         <Text style={styles.title} >Hello world</Text>
         <Text> {`platform:${greeting}`}  </Text>
-      </View>)
+      </MainLayout>)
   }
 }
 
