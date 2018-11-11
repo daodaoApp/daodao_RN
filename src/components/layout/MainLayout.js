@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Container, Text, Header, Content, Footer, FooterTab, Button, Icon } from 'native-base'
 import { navigate } from 'react-navigation'
-
+import { log } from '../../utils/debugTools'
 class MainLayout extends Component {
   constructor(props) {
     super(props)
@@ -17,14 +17,19 @@ class MainLayout extends Component {
     ]
     let tabs
     const { navigate } = this.props.navigation
+    let { routeName: current } = this.props.navigation.state
+    // log(JSON.stringify(cur, null, 2))
 
     if (Array.isArray(list) && list.length > 0) {
       tabs = list.map(item => {
         const { title, screen } = item
+        const active = current === screen
         return (
           <Button
             key={title}
-            onPress={() => navigate(screen)} >
+            onPress={() => navigate(screen)}
+            active={active}
+          >
             <Text>{title}</Text>
           </Button>)
       })
@@ -65,9 +70,9 @@ class MainLayout extends Component {
 
     return (
       <Container>
-        <Header>
+        {/* <Header>
           <Text>{this.props.title}</Text>
-        </Header>
+        </Header> */}
         <Content>
           {this.props.children}
         </Content>
