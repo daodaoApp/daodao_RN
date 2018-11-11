@@ -2,17 +2,15 @@
 import React, { Component } from 'react'
 import { View, Text, StyleSheet, Platform } from 'react-native'
 
-const greeting = Platform.select({
-  ios: 'ios',
-  android: 'android'
-});
+import { Calendar, CalendarList, Agenda } from 'react-native-calendars'
 
-class Calendar extends Component {
+class CalendarScreen extends Component {
   render() {
     return (
       <View style={styles.container} >
         <Text style={styles.title} >日历页面</Text>
-        <Text> {`platform:${greeting}`}  </Text>
+        <Calendar></Calendar>
+        {/* <Text> {`platform:${greeting}`}  </Text> */}
       </View>)
   }
 }
@@ -20,7 +18,7 @@ class Calendar extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
+    // justifyContent: 'center',
     // color: 'red',
     backgroundColor: '#ccc',
   },
@@ -29,4 +27,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export default Calendar
+export default CalendarScreen
